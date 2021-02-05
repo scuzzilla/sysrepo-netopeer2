@@ -110,38 +110,27 @@ gen_capabilities_yangs() {
     local port="$(echo "${line}" | awk -F "," '{print $2}')"
 
     echo -e "${host}"
-    local cap_list=$("${nc}" --host "${host}" --port "${port}" -u "${username}" -p "${password}" --timeout 30 --reply-timeout 30 --hello | \
-                      awk -F "module=" '{print $2}' | awk -F "&amp" '{print $1}' 2> /dev/null)
-    local cap_deviations=$("${nc}" --host "${host}" --port "${port}" -u "${username}" -p "${password}" --timeout 30 --reply-timeout 30 --hello | \
-                      awk -F "deviations=" '{print $2}' | awk -F "<" '{print $1}' 2> /dev/null)
-    $("${nc}" --host "${host}" --port "${port}" -u "${username}" -p "${password}" --hello | \
-      awk -F "module=" '{print $2}' | awk -F "&amp" '{print $1}' > cap_list.lst 2> /dev/null)
+    local cap_list=$("${nc}" --host "${host}" --port "${port}" -u "${username}" -p "${password}" \ 
+                     --timeout 30 --reply-timeout 30 --hello | awk -F "module=" '{print $2}' | awk -F "&amp" '{print $1}' 2> /dev/null)
+#    local cap_deviations=$("${nc}" --host "${host}" --port "${port}" -u "${username}" -p "${password}" \
+#                           --timeout 30 --reply-timeout 30 --hello | awk -F "deviations=" '{print $2}' | awk -F "<" '{print $1}' 2> /dev/null)
     
     if [[ ! -d "${work_dir}/capabilities_yangs/${host}" ]]; then
       mkdir -p "${work_dir}/capabilities_yangs/${host}"
     fi
 
-    while read -r line
+    for yang in $cap_list
     do
-      if [[ ! -z $line ]]; then
-        echo -e "YANG - Extracting ${line} from ${host} ..."
-        $("${nc}" --host "${host}" --port "${port}" -u "${username}" -p "${password}" --timeout 30 --reply-timeout 30 --get-schema "${line}" > \
-          "${work_dir}/capabilities_yangs/${host}/${line}.yang")
-      fi
-    done < cap_list.lst
-
-#    for yang in $cap_list
-#    do
-#      echo -e "YANG - Extracting ${yang} from ${host} ..."
-#      $("${nc}" --host "${host}" --port "${port}" --timeout 30 --reply-timeout 30 --get-schema "${yang}" > \
-#        "${work_dir}/capabilities_yangs/${host}/${yang}.yang")
-#    done
-#    
+      echo -e "YANG - Extracting ${yang} from ${host} ..."
+      $("${nc}" --host "${host}" --port "${port}" -u "${username}" -p "${password}" \
+        --timeout 30 --reply-timeout 30 --get-schema "${yang}" > "${work_dir}/capabilities_yangs/${host}/${yang}.yang")
+    done
+    
 #    for yang in $cap_deviations
 #    do
 #      echo -e "YANG Deviations - Extracting ${yang} from ${host} ..."
-#      $("${nc}" --host "${host}" --port "${port}" --timeout 30 --reply-timeout 30 --get-schema "${yang}" > \
-#        "${work_dir}/capabilities_yangs/${host}/${yang}.yang")
+#      $("${nc}" --host "${host}" --port "${port}" -u "${username}" -p "${password}" \
+#        --timeout 30 --reply-timeout 30 --get-schema "${yang}" > "${work_dir}/capabilities_yangs/${host}/${yang}.yang")
 #    done
   done < "${f_arg}"
 }
