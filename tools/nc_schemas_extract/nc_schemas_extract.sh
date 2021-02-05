@@ -121,7 +121,7 @@ gen_capabilities_yangs() {
 
     for yang in $cap_list
     do
-      echo -e "Extracting ${yang} from ${host} ..."
+      echo -e "YANG - Extracting ${yang} from ${host} ..."
       $("${nc}" --host "${host}" --port "${port}" --get-schema "${yang}" > \
         "${work_dir}/capabilities_yangs/${host}/${yang}.yang")
       sleep 1
@@ -129,7 +129,7 @@ gen_capabilities_yangs() {
     
     for yang in $cap_deviations
     do
-      echo -e "Extracting ${yang} from ${host} ..."
+      echo -e "YANG Deviations - Extracting ${yang} from ${host} ..."
       $("${nc}" --host "${host}" --port "${port}" --get-schema "${yang}" > \
         "${work_dir}/capabilities_yangs/${host}/${yang}.yang")
       sleep 1

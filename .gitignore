@@ -1,1 +1,3 @@
 *.swp
+*.lst
+capabilities_yangs/*
