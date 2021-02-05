@@ -14,8 +14,8 @@ set -o pipefail
 
 work_dir=$(dirname "$(readlink --canonicalize-existing "${0}" 2> /dev/null)")
 
-readonly username="xrv"
-readonly password="xrv123" 
+readonly username="daisy"
+readonly password="daisy" 
 #readonly epoch=$(date +'%s'i)
 readonly nc=$(which netconf-console 2> /dev/null)
 readonly error_reading_file=80
