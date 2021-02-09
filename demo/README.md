@@ -101,16 +101,16 @@ DATA
 ```
 ---
 
-### Simulation - Future steps
+### Simulation - Future steps:
 
 - Automate sysrepo schemas/data manipulation using both sysrepo & libyang API
 - Integrate sysrepo with NetLabs to be able to interact with the network devices
 
 ---
 
-### References
+### References:
 
-- YANG schemas offical git repo - https://github.com/YangModels/yang
+- YANG schemas official git repo - https://github.com/YangModels/yang
 - YANG schemas discovery - https://yangcatalog.org/
 - Sysrepo API doc - https://github.com/sysrepo/sysrepo-python
 - Libyang API doc - https://github.com/CESNET/libyang-python
