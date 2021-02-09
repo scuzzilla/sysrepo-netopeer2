@@ -1,0 +1,3 @@
+<native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+  <hostname>PE2</hostname>
+</native>

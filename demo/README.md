@@ -3,6 +3,8 @@
 #### Generic intro on sysrepo/netopeer2
 ![alt text](https://www.sysrepo.org/diagram.png "sysrepo")
 
+---
+
 #### 0 - Extract schemas directly from the network
 ```
   shell# nc_schemas_extract.sh -f <devices.lst> 
@@ -32,10 +34,27 @@ Remember to sanitize the exported schemas:
   shell# sysrepoctl -i Cisco-IOS-XE-bgp.yang  -s '/home/toto/Projects/sysrepo-netopeer2/tools/nc_schemas_extract/capabilities_yangs/10.110.110.65/'
   shell# sysrepoctl -i Cisco-IOS-XE-route-map.yang  -s '/home/toto/Projects/sysrepo-netopeer2/tools/nc_schemas_extract/capabilities_yangs/10.110.110.65/'
 ```
+to be able to verify the imported schemas:
+```
+  shell: sysrepocfg -l
+```
 
 #### 4 - change the schemas permissions
+```
+  shell# sysrepoctl --change <module> --owner <owner> --group <group> --permissions <unix-bit-mask>
+```
+
 #### 5 - Validate/Import the associated configuration (XML) into sysrepo
+```
+  shell# sysrepocfg --import=10.110.110.65_hostname.xml --datastore startup --module Cisco-IOS-XE-native   
+  shell# sysrepocfg --import=10.110.110.66_hostname.xml --datastore startup --module Cisco-IOS-XE-native   
+```
+
 #### 6 - tests with xpath & sysrepo
+```
+  shell# sysrepocfg --export --xpath '/Cisco-IOS-XE-native:native/hostname' --datastore startup
+```
+
 #### 7 - tests with netopeer2, netconf client/server & sysrepo
 
 ---
