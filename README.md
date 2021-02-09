@@ -8,7 +8,7 @@ sysrepoctl -l|--list
 ```
 - installing a new schema:
 ```
-sysrepoctl -i|--install <module-path>
+sysrepoctl -i|--install <module-path> -s <search-path>
 ```
 - uninstall an existing schema:
 ```
