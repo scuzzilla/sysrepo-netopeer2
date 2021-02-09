@@ -1,9 +1,18 @@
-0. Generic intro on sysrepo/netopeer2
+### Simulation - Main Stpes:
+
+#### Generic intro on sysrepo/netopeer2
 - store schemas/data
 - ...
 
+0. Collect schemas directly from the network
+```
+shell# nc_schemas_extract.sh -f <devices.lst> 
+```
+
 1. Get the full config from the PE
-- netconf-console --host 10.110.110.65 --port 830 -u daisy -p daisy --get-config
+```
+shell#  netconf-console --host 10.110.110.65 --port 830 -u daisy -p daisy --get-config
+```
 
 2. Extract the schemas related to the overaly configuration
 3. load the extracted schemas into sysrepo
@@ -14,7 +23,7 @@
 
 ---
 
-### Next steps
+### Simulation - Future steps
 
 1. ...
 2. ... 
@@ -33,4 +42,3 @@
 - https://github.com/CESNET/netopeer2
 - https://kea.readthedocs.io/en/kea-1.6.3/arm/netconf.html#overview
 - https://kb.isc.org/docs/building-a-kea-testbed-with-netconf
-- ...
