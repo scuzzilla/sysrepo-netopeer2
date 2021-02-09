@@ -4,29 +4,29 @@
 - store schemas/data
 - ...
 
-0. Collect schemas directly from the network
+#### Collect schemas directly from the network
 ```
 shell# nc_schemas_extract.sh -f <devices.lst> 
 ```
 
-1. Get the full config from the PE
+#### Get the full config from the PE
 ```
 shell#  netconf-console --host 10.110.110.65 --port 830 -u daisy -p daisy --get-config
 ```
 
-2. Extract the schemas related to the overaly configuration
-3. load the extracted schemas into sysrepo
-4. change the schemas permissions
-5. Validate/Import the associated configuration (XML) into sysrepo
-6. tests with xpath & sysrepo
-7. tests with netopeer2, netconf client/server & sysrepo
+#### Extract the schemas related to the overaly configuration
+#### load the extracted schemas into sysrepo
+#### change the schemas permissions
+#### Validate/Import the associated configuration (XML) into sysrepo
+#### tests with xpath & sysrepo
+#### tests with netopeer2, netconf client/server & sysrepo
 
 ---
 
 ### Simulation - Future steps
 
-1. ...
-2. ... 
+#### ...
+#### ... 
 
 ---
 
