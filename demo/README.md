@@ -103,20 +103,17 @@ DATA
 
 ### Simulation - Future steps
 
-#### 0 - ...
-#### 1 - ... 
+- Automate sysrepo schemas/data manipulation using both sysrepo & libyang API
+- Integrate sysrepo with NetLabs to be able to interact with the network devices
 
 ---
 
 ### References
 
-- https://github.com/YangModels/yang
-- https://yangcatalog.org/
-- https://github.com/sysrepo/sysrepo-python
-- https://github.com/CESNET/libyang-python
-- https://github.com/sysrepo/sysrepo
-- https://www.sysrepo.org/documentation
-- https://netopeer.liberouter.org/doc/sysrepo/master/html/sysrepocfg.html
-- https://github.com/CESNET/netopeer2
-- https://kea.readthedocs.io/en/kea-1.6.3/arm/netconf.html#overview
-- https://kb.isc.org/docs/building-a-kea-testbed-with-netconf
+- YANG schemas offical git repo - https://github.com/YangModels/yang
+- YANG schemas discovery - https://yangcatalog.org/
+- Sysrepo API doc - https://github.com/sysrepo/sysrepo-python
+- Libyang API doc - https://github.com/CESNET/libyang-python
+- Sysrepo source code - https://github.com/sysrepo/sysrepo
+- Netopeer2 source code - https://github.com/CESNET/netopeer2
+- Sysrepo doc - https://www.sysrepo.org/documentation
