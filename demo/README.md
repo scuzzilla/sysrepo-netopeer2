@@ -1,7 +1,7 @@
 ### Simulation - Main Stpes:
 
 #### Generic intro on sysrepo/netopeer2
-store schemas/data ...
+![alt text](https://www.sysrepo.org/diagram.png "sysrepo")
 
 #### 0 - Extract schemas directly from the network
 ```
