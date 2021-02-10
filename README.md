@@ -31,4 +31,7 @@ sysreopctl -U|--update <module-path>
 sysrepoctl --connection-count
 ```
 
+---
+
 ### sysreopcfg
+https://netopeer.liberouter.org/doc/sysrepo/master/html/sysrepocfg.html
