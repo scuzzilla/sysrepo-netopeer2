@@ -127,8 +127,8 @@ shell# cat 10.110.110.71_vrf.xml
 ```
 finally, the configuration could be deployed via netconf:
 ```shell
-	shell# netconf-console --host 10.110.110.71 --port 830 -u daisy -p daisy 10.110.110.71_vrf.xml
-  shell# netconf-console --host 10.110.110.71 --port 830 -u daisy -p daisy --commit
+shell# netconf-console --host 10.110.110.71 --port 830 -u daisy -p daisy 10.110.110.71_vrf.xml
+shell# netconf-console --host 10.110.110.71 --port 830 -u daisy -p daisy --commit
 ``` 
 
 ---
