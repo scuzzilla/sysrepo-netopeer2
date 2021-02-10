@@ -13,7 +13,7 @@ Remote operations on sysrepo could be also acheived developing ad-hoc plugins us
 ---
 
 #### 0 - Extract schemas directly from the network
-```
+```shell
   shell# nc_schemas_extract.sh -f <devices.lst> 
 ```
 Remember to sanitize the exported schemas:
@@ -104,7 +104,7 @@ DATA
 ### Simulation - Future steps:
 
 - Automate sysrepo schemas/data manipulation using both sysrepo & libyang API
-```
+```python
 import sysrepo
 
 with sysrepo.SysrepoConnection() as conn:
