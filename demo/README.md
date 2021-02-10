@@ -144,7 +144,7 @@ with sysrepo.SysrepoConnection() as conn:
          print(module.name())
 ```
 - Integrate sysrepo with NetLabs to be able to interact with the network devices
-- Efficently integrate sysrepo within the existing telemetry's architecture to acheive the so called closed-loop automation  
+- Efficiently integrate sysrepo within the existing telemetry architecture to achieve the so called closed-loop automation  
 
 ---
 
