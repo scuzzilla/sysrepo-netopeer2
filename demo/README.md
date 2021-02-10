@@ -157,4 +157,4 @@ with sysrepo.SysrepoConnection() as conn:
 - Sysrepo source code - https://github.com/sysrepo/sysrepo
 - Netopeer2 source code - https://github.com/CESNET/netopeer2
 - Sysrepo doc - https://www.sysrepo.org/documentation
-- NetLabs - https://github.com/scuzzilla/NetLabs
+- NetLabs - https://github.com/scuzzilla/NetLabs (access granted upon request)
