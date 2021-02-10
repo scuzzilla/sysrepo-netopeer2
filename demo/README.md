@@ -43,7 +43,7 @@ Remember to sanitize the exported schemas:
 ```
 to be able to verify the imported schemas:
 ```shell
-  shell: sysrepocfg -l
+  shell# sysrepocfg -l
 ```
 
 #### 4 - change the schemas permissions
