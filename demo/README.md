@@ -104,7 +104,15 @@ DATA
 ### Simulation - Future steps:
 
 - Automate sysrepo schemas/data manipulation using both sysrepo & libyang API
+```
+import sysrepo
+
+with sysrepo.SysrepoConnection() as conn:
+     for module in conn.get_ly_ctx():
+         print(module.name())
+```
 - Integrate sysrepo with NetLabs to be able to interact with the network devices
+- Efficently integrate sysrepo within the existing telemetry's architecture to acheive the so called closed-loop automation  
 
 ---
 
@@ -117,3 +125,4 @@ DATA
 - Sysrepo source code - https://github.com/sysrepo/sysrepo
 - Netopeer2 source code - https://github.com/CESNET/netopeer2
 - Sysrepo doc - https://www.sysrepo.org/documentation
+- NetLabs - https://github.com/scuzzilla/NetLabs
