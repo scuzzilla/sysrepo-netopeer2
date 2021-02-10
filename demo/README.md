@@ -96,9 +96,41 @@ exit            Quit the program
 > get-config --source startup --filter-xpath '/Cisco-IOS-XE-native:native'
 DATA
 <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
-	<hostname>PE1</hostname>
+  <vrf>
+    <definition>
+      <name>Y</name>
+      <rd>64499:1721607</rd>
+    </definition>
+  </vrf>
 </native>
 ```
+to be able to deply the obtained configuration you should create an ad-hoc rpc:
+```xml
+shell# cat 10.110.110.71_vrf.xml
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+  <edit-config>
+    <target>
+      <candidate/>
+    </target>
+    <config>
+      <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+        <vrf>
+          <definition>
+            <name>Y</name>
+            <rd>64499:1721607</rd>
+          </definition>
+        </vrf>
+      </native>
+    </config>
+  </edit-config>
+</rpc>
+```
+finally, the configuration could be deployed via netconf:
+```shell
+	shell# netconf-console --host 10.110.110.71 --port 830 -u daisy -p daisy 10.110.110.71_vrf.xml
+  shell# netconf-console --host 10.110.110.71 --port 830 -u daisy -p daisy --commit
+``` 
+
 ---
 
 ### Simulation - Future steps:
