@@ -17,58 +17,58 @@ Remote operations on sysrepo could be also acheived developing ad-hoc plugins us
   shell# nc_schemas_extract.sh -f <devices.lst> 
 ```
 Remember to sanitize the exported schemas:
-```
+```shell
   shell#: sed -i /\&gt;/\>/g *
   shell#: sed -i /\&lt;/\</g *
   shell#: sed -i /\&amp;/\&/g *
 ```
 
 #### 1 - Get the full config from the PE
-```
+```shell
   shell#  netconf-console --host 10.110.110.65 --port 830 -u daisy -p daisy --get-config > 10.110.110.65_full.xml
   shell#  egrep 'xmlns' 10.110.110.65_full.xml | awk -F "\"" '{print $2}' | sort | uniq
 ```
 
 #### 2 - Extract the schemas related to the overaly configuration
-```
+```shell
   shell#  egrep 'xmlns' 10.110.110.65_full.xml | awk -F "\"" '{print $2}' | sort | uniq
 ```
 
 #### 3 - load the extracted schemas into sysrepo
-```
+```shell
   shell# sysrepoctl -i Cisco-IOS-XE-isis.yang  -s '/home/toto/Projects/sysrepo-netopeer2/tools/nc_schemas_extract/capabilities_yangs/10.110.110.65/'
   shell# sysrepoctl -i Cisco-IOS-XE-mpls.yang  -s '/home/toto/Projects/sysrepo-netopeer2/tools/nc_schemas_extract/capabilities_yangs/10.110.110.65/'
   shell# sysrepoctl -i Cisco-IOS-XE-bgp.yang  -s '/home/toto/Projects/sysrepo-netopeer2/tools/nc_schemas_extract/capabilities_yangs/10.110.110.65/'
   shell# sysrepoctl -i Cisco-IOS-XE-route-map.yang  -s '/home/toto/Projects/sysrepo-netopeer2/tools/nc_schemas_extract/capabilities_yangs/10.110.110.65/'
 ```
 to be able to verify the imported schemas:
-```
+```shell
   shell: sysrepocfg -l
 ```
 
 #### 4 - change the schemas permissions
-```
+```shell
   shell# sysrepoctl --change <module> --owner <owner> --group <group> --permissions <unix-bit-mask>
 ```
 
 #### 5 - Validate/Import/Edit the associated configuration (XML) into sysrepo
-```
+```shell
   shell# sysrepocfg --import=10.110.110.65_hostname.xml --datastore startup --module Cisco-IOS-XE-native   
   shell# sysrepocfg --import=10.110.110.66_hostname.xml --datastore startup --module Cisco-IOS-XE-native   
 ```
 to be able to edit the configuration directly from the datastore
-```
+```shell
   shell# doas sysrepocfg --edit=vim --lock --datastore startup
 ```
 
 #### 6 - tests with xpath & sysrepo
-```
+```shell
   shell# sysrepocfg --export --xpath '/Cisco-IOS-XE-native:native/hostname' --datastore startup
 ```
 
 #### 7 - tests with netopeer2, netconf client/server & sysrepo
 Assuming that netopeer2-server is up & running, netopeer2-cli is used to perform operations on sysrepo via netconf
-```
+```shell
 +toto@sysrepo02 ~ $ netopeer2-cli
 > connect
 Interactive SSH Authentication
