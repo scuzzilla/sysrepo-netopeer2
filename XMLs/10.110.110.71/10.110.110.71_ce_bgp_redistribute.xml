@@ -1,4 +1,31 @@
 <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+  <vrf>
+    <definition>
+      <name>Z</name>
+      <rd>64499:107</rd>
+        <address-family>
+          <ipv4/>
+        </address-family>
+    </definition>
+  </vrf>
+  <route-map>
+    <name>RP-Z-BGP-RED-IPV4</name>
+    <route-map-without-order-seq xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-route-map">
+      <seq_no>10</seq_no>
+      <operation>permit</operation>
+      <set>
+        <community>
+          <community-well-known>
+            <community-list>60633:299</community-list>
+            <community-list>60633:1001</community-list>
+            <community-list>60633:1033</community-list>
+            <community-list>64497:4</community-list>
+            <community-list>64499:7</community-list>
+          </community-well-known>
+        </community>
+      </set>
+    </route-map-without-order-seq>
+  </route-map>
   <router>
     <bgp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-bgp">
       <id>64497</id>
