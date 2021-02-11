@@ -104,7 +104,7 @@ DATA
   </vrf>
 </native>
 ```
-to be able to deply the obtained configuration you should create an ad-hoc rpc:
+to be able to deploy the obtained configuration you should create an ad-hoc rpc:
 ```xml
 shell# cat 10.110.110.71_vrf.xml
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
@@ -150,6 +150,7 @@ with sysrepo.SysrepoConnection() as conn:
 
 ### References:
 
+- NMD Architecture - https://tools.ietf.org/html/rfc8342 
 - YANG schemas official git repo - https://github.com/YangModels/yang
 - YANG schemas discovery - https://yangcatalog.org/
 - Sysrepo API doc - https://github.com/sysrepo/sysrepo-python
