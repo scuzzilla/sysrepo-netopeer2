@@ -1,8 +1,11 @@
 <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
   <vrf>
     <definition>
-      <name>Y</name>
-      <rd>64499:1721607</rd>
+      <name>Z</name>
+      <rd>64499:107</rd>
+        <address-family>
+          <ipv4/>
+        </address-family>
     </definition>
   </vrf>
 </native>
