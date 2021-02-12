@@ -15,9 +15,9 @@
                   <vrf>
                     <name>Z</name>
                     <ipv4-unicast>
-                      <network operation='delete'>
-                        <with-mask>
-                          <number>172.16.0.77</number>
+                      <network>
+                        <with-mask operation='delete'>
+                          <number>172.16.0.7</number>
                           <mask>255.255.255.255</mask>
                           <route-map>RP-Z-BGP-RED-IPV4</route-map>
                         </with-mask>
