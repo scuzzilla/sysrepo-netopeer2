@@ -1,0 +1,32 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+  <edit-config>
+    <target>
+      <candidate/>
+    </target>
+    <config>
+      <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+        <interface operation='delete'>
+          <Loopback>
+            <name>517</name>
+            <vrf>
+              <forwarding>Z</forwarding>
+            </vrf>
+            <ip>
+              <address>
+                <primary>
+                  <address>172.16.0.77</address>
+                  <mask>255.255.255.255</mask>
+                </primary>
+              </address>
+            </ip>
+            <logging>
+              <event>
+                <link-status/>
+              </event>
+            </logging>
+          </Loopback>
+        </interface>
+      </native>
+    </config>
+  </edit-config>
+</rpc>

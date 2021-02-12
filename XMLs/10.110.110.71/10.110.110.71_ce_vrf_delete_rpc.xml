@@ -1,0 +1,17 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+  <edit-config>
+    <target>
+      <candidate/>
+    </target>
+    <config>
+      <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+        <vrf operation='delete'>
+          <definition>
+            <name>Z</name>
+            <rd>64499:107</rd>
+          </definition>
+        </vrf>
+      </native>
+    </config>
+  </edit-config>
+</rpc>
