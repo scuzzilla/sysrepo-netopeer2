@@ -33,5 +33,5 @@ sysrepoctl --connection-count
 
 ---
 
-### sysreopcfg
-https://netopeer.liberouter.org/doc/sysrepo/master/html/sysrepocfg.html
+### sysreo
+https://github.com/sysrepo/sysrepo
